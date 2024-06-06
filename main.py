@@ -134,7 +134,7 @@ def linear_probe_sklearn_main(cfg):
     accuracy = np.mean((test_labels == predictions).astype(np.float32)) * 100.
     print(f"Test Accuracy = {accuracy:.3f}")
 
-    with open("output/linear_probe/{}.txt".format(cfg.dataset), "a") as f:
+    with open("/mnt/nasv2/hhz/LaBo/output/linear_prob/{}.txt".format(cfg.dataset), "a") as f:
         f.write("{} {}shot {}, best C = {}, seed = {}\n".format(cfg.dataset, cfg.n_shots, cfg.clip_model, best_c, seed))
         f.write(f"Val Accuracy: {val_acc_mean:.3f}, Val std: {val_acc_std:.3f}\n")
         f.write(f"Test Accuracy = {accuracy:.3f}\n\n")
@@ -253,7 +253,7 @@ def asso_opt_main(cfg):
         ckpt_path = cfg.ckpt_path
         print('load ckpt: {}'.format(ckpt_path))
         model = AssoConceptFast.load_from_checkpoint(str(ckpt_path))
-        trainer = pl.Trainer(gpus=1)
+        trainer = pl.Trainer(devices=1)
         trainer.test(model, data_module)
         test_acc = round(100 * float(model.total_test_acc), 2)
         dataset = cfg.ckpt_path.split("/")[-3]
@@ -294,7 +294,7 @@ def asso_opt_main(cfg):
                        project=proj_name,
                        config=cfg._cfg_dict)
 
-        trainer = pl.Trainer(gpus=1,
+        trainer = pl.Trainer(devices=1,
                              callbacks=[checkpoint_callback],
                              logger=wandb_logger,
                              check_val_every_n_epoch=check_interval,
@@ -314,7 +314,7 @@ def asso_opt_main(cfg):
             save_top_k=1,
             every_n_epochs=50)
         # device_stats = pl.callbacks.DeviceStatsMonitor()
-        trainer = pl.Trainer(gpus=1, max_epochs=1000, \
+        trainer = pl.Trainer(devices=1, max_epochs=1000, \
             callbacks=[checkpoint_callback, ], check_val_every_n_epoch=50, default_root_dir=cfg.work_dir)
     trainer.fit(model, data_module)
 

@@ -26,6 +26,11 @@ class AssoConcept(pl.LightningModule):
 
     def __init__(self, cfg, init_weight=None, select_idx=None) -> None:
         super().__init__()
+        # add for after pytorch-lightning 2.0
+        self.training_step_outputs = []
+        self.validation_step_outputs = []
+        self.test_step_outputs = []
+        #
         self.cfg = cfg
         self.data_root = Path(cfg.data_root)
         concept_feat_path = self.data_root.joinpath('concepts_feat_{}.pth'.format(self.cfg.clip_model.replace('/','-')))
@@ -65,13 +70,13 @@ class AssoConcept(pl.LightningModule):
             # self.weight_mask = cls_sim @ self.init_weight
 
         self.asso_mat = th.nn.Parameter(self.init_weight.clone())
-        self.train_acc = torchmetrics.Accuracy(num_classes=cfg.num_cls)
-        self.valid_acc = torchmetrics.Accuracy(num_classes=cfg.num_cls)
+        self.train_acc = torchmetrics.Accuracy(num_classes=cfg.num_cls, task='multiclass')
+        self.valid_acc = torchmetrics.Accuracy(num_classes=cfg.num_cls, task='multiclass')
         # self.test_acc = torchmetrics.Accuracy(num_classes=cfg.num_cls, average='macro')
-        self.test_acc = torchmetrics.Accuracy(num_classes=cfg.num_cls)
+        self.test_acc = torchmetrics.Accuracy(num_classes=cfg.num_cls, task='multiclass')
         self.all_y = []
         self.all_pred = []
-        self.confmat = torchmetrics.ConfusionMatrix(self.cfg.num_cls)
+        self.confmat = torchmetrics.ConfusionMatrix(num_classes=cfg.num_cls, task='multiclass')
         self.save_hyperparameters()
 
 
@@ -127,8 +132,15 @@ class AssoConcept(pl.LightningModule):
             final_loss += self.cfg.lambda_l1 * row_l1_norm
         if self.cfg.use_div_loss:
             final_loss += self.cfg.lambda_div * div
+        # add for after pytorch-lightning 2.0
+        self.training_step_outputs.append(final_loss)
         return final_loss
 
+    # add for after pytorch-lightning 2.0
+    def on_train_epoch_end(self):
+        epoch_average = th.stack(self.training_step_outputs).mean()
+        self.log('train_epoch_loss', epoch_average)
+        self.training_step_outputs.clear()
 
     def configure_optimizers(self):
         opt = th.optim.Adam(self.parameters(), lr=self.cfg.lr)
@@ -146,8 +158,15 @@ class AssoConcept(pl.LightningModule):
         self.log('val_loss', loss)
         self.valid_acc(pred, y)
         self.log('val_acc', self.valid_acc, on_step=False, on_epoch=True)
+        # add for after pytorch-lightning 2.0
+        self.validation_step_outputs.append(loss)
         return loss
 
+    # add for after pytorch-lightning 2.0
+    def on_validation_epoch_end(self):
+        epoch_average = th.stack(self.validation_step_outputs).mean()
+        self.log('val_epoch_loss', epoch_average)
+        self.validation_step_outputs.clear()
 
     def test_step(self, batch, batch_idx):
         image, y = batch
@@ -161,13 +180,20 @@ class AssoConcept(pl.LightningModule):
         self.log('test_loss', loss)
         self.test_acc(pred, y)
         self.log('test_acc', self.test_acc, on_step=False, on_epoch=True)
+        # add for after pytorch-lightning 2.0
+        self.test_step_outputs.append(loss)
         return loss
 
 
-    def test_epoch_end(self, outputs):
+    def on_test_epoch_end(self):
         all_y = th.hstack(self.all_y)
         all_pred = th.hstack(self.all_pred)
         self.total_test_acc = self.test_acc(all_pred, all_y)
+        # add for after pytorch-lightning 2.0
+        epoch_average = th.stack(self.test_step_outputs).mean()
+        self.log('test_epoch_loss', epoch_average)
+        self.test_step_outputs.clear()
+        
         pass
 
 
