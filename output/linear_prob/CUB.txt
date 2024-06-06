@@ -1,0 +1,25 @@
+sh linear_prob.sh CUB {shot} ViT-L/14
+
+CUB 1shot ViT-L/14, best C = 0.007635060803383346, seed = 1
+Val Accuracy: 48.350, Val std: 0.000
+Test Accuracy = 47.877
+
+CUB 2shot ViT-L/14, best C = 8659.643233600653, seed = 1
+Val Accuracy: 60.200, Val std: 0.000
+Test Accuracy = 60.753
+
+CUB 4shot ViT-L/14, best C = 0.9821718891880379, seed = 1
+Val Accuracy: 72.750, Val std: 0.000
+Test Accuracy = 72.385
+
+CUB 8shot ViT-L/14, best C = 0.016548170999431813, seed = 1
+Val Accuracy: 78.400, Val std: 0.000
+Test Accuracy = 79.876
+
+CUB 16shot ViT-L/14, best C = 0.09999999999999999, seed = 1
+Val Accuracy: 83.400, Val std: 0.000
+Test Accuracy = 83.932
+
+CUB allshot ViT-L/14, best C = 0.01, seed = 1
+Val Accuracy: 83.800, Val std: 0.000
+Test Accuracy = 84.553

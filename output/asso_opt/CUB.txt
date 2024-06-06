@@ -1,0 +1,7 @@
+bash labo_test.sh {CONFIG_PATH} {CHECKPOINT_PATH}
+CUB_1shot_fac	52.45
+CUB_2shot_fac	62.08
+CUB_4shot_fac	70.0
+CUB_8shot_fac	76.34
+CUB_16shot_fac	80.98
+CUB_allshot_fac	81.95
