@@ -1,11 +1,11 @@
 steps = 8
 n_runs = 1
 img_path = 'datasets/flower/images/'
+data_root = 'exp/linear_probe/flower'
+img_split_path = 'datasets/flower/splits'
 num_cls = 102
 unfreeze_clip = False
 paper = True
-data_root = 'exp/linear_probe/flower'
-img_split_path = 'datasets/flower/splits'
 cls_names = [
     'pink primrose', 'hard-leaved pocket orchid', 'canterbury bells',
     'sweet pea', 'english marigold', 'tiger lily', 'moon orchid',

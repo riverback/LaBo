@@ -8,3 +8,5 @@ wandb/
 lightning_logs/
 .DS_Store
 *.tgz
+*.tar.gz
+datasets/food/food-101
