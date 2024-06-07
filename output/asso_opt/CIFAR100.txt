@@ -1,0 +1,6 @@
+CIFAR100_1shot_fac	62.73
+CIFAR100_2shot_fac	65.08
+CIFAR100_4shot_fac	70.78
+CIFAR100_8shot_fac	74.53
+CIFAR100_16shot_fac	77.68
+CIFAR100_allshot_fac	86.02

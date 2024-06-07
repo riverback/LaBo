@@ -1,0 +1,24 @@
+CIFAR100 1shot ViT-L/14, best C = 100.0, seed = 1
+Val Accuracy: 39.560, Val std: 0.000
+Test Accuracy = 39.250
+
+CIFAR100 2shot ViT-L/14, best C = 542.4690937011326, seed = 1
+Val Accuracy: 57.840, Val std: 0.000
+Test Accuracy = 57.270
+
+CIFAR100 4shot ViT-L/14, best C = 749.8942093324558, seed = 1
+Val Accuracy: 70.100, Val std: 0.000
+Test Accuracy = 69.730
+
+CIFAR100 8shot ViT-L/14, best C = 749.8942093324558, seed = 1
+Val Accuracy: 76.580, Val std: 0.000
+Test Accuracy = 76.230
+
+CIFAR100 16shot ViT-L/14, best C = 406.7944321083047, seed = 1
+Val Accuracy: 80.380, Val std: 0.000
+Test Accuracy = 80.180
+
+CIFAR100 allshot ViT-L/14, best C = 0.01, seed = 1
+Val Accuracy: 87.680, Val std: 0.000
+Test Accuracy = 87.490
+
