@@ -10,3 +10,4 @@ lightning_logs/
 *.tgz
 *.tar.gz
 datasets/food/food-101
+*.zip

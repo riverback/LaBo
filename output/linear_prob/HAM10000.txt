@@ -1,0 +1,24 @@
+HAM10000 1shot ViT-L/14, best C = 10.0, seed = 1
+Val Accuracy: 48.400, Val std: 0.000
+Test Accuracy = 44.378
+
+HAM10000 2shot ViT-L/14, best C = 7.498942093324559e-06, seed = 1
+Val Accuracy: 59.000, Val std: 0.000
+Test Accuracy = 58.507
+
+HAM10000 4shot ViT-L/14, best C = 98.21718891880379, seed = 1
+Val Accuracy: 45.600, Val std: 0.000
+Test Accuracy = 44.478
+
+HAM10000 8shot ViT-L/14, best C = 1810.5582430271218, seed = 1
+Val Accuracy: 51.900, Val std: 0.000
+Test Accuracy = 49.552
+
+HAM10000 16shot ViT-L/14, best C = 1.0, seed = 1
+Val Accuracy: 63.100, Val std: 0.000
+Test Accuracy = 61.095
+
+HAM10000 allshot ViT-L/14, best C = 0.03162277660168379, seed = 1
+Val Accuracy: 84.500, Val std: 0.000
+Test Accuracy = 82.488
+

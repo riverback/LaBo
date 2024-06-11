@@ -1,0 +1,6 @@
+HAM10000_1shot_fac	37.01
+HAM10000_2shot_fac	44.88
+HAM10000_4shot_fac	45.27
+HAM10000_8shot_fac	44.68
+HAM10000_16shot_fac	58.91
+HAM10000_allshot_fac	80.8
