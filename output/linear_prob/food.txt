@@ -1,0 +1,24 @@
+food 1shot ViT-L/14, best C = 982.1718891880379, seed = 1
+Val Accuracy: 58.901, Val std: 0.000
+Test Accuracy = 58.759
+
+food 2shot ViT-L/14, best C = 100.0, seed = 1
+Val Accuracy: 75.589, Val std: 0.000
+Test Accuracy = 75.947
+
+food 4shot ViT-L/14, best C = 31.622776601683796, seed = 1
+Val Accuracy: 84.757, Val std: 0.000
+Test Accuracy = 84.799
+
+food 8shot ViT-L/14, best C = 88.16830667755708, seed = 1
+Val Accuracy: 87.683, Val std: 0.000
+Test Accuracy = 88.017
+
+food 16shot ViT-L/14, best C = 0.09999999999999999, seed = 1
+Val Accuracy: 89.886, Val std: 0.000
+Test Accuracy = 90.102
+
+food allshot ViT-L/14, best C = 0.00736525012271228, seed = 1
+Val Accuracy: 93.074, Val std: 0.000
+Test Accuracy = 93.191
+
