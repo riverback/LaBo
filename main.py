@@ -252,7 +252,10 @@ def asso_opt_main(cfg):
     if cfg.test:
         ckpt_path = cfg.ckpt_path
         print('load ckpt: {}'.format(ckpt_path))
-        model = AssoConceptFast.load_from_checkpoint(str(ckpt_path))
+        if cfg.proj_name == "ImageNet" and (cfg.n_shots == "all" or cfg.n_shots == 16):
+            model = AssoConcept.load_from_checkpoint(str(ckpt_path))
+        else:
+            model = AssoConceptFast.load_from_checkpoint(str(ckpt_path))
         trainer = pl.Trainer(devices=1)
         trainer.test(model, data_module)
         test_acc = round(100 * float(model.total_test_acc), 2)
