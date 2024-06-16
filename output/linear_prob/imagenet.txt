@@ -1,0 +1,20 @@
+imagenet 1shot ViT-L/14, best C = 881.6830667755709, seed = 1
+Val Accuracy: 42.242, Val std: 0.000
+Test Accuracy = 42.208
+
+imagenet 2shot ViT-L/14, best C = 723.3941627366747, seed = 1
+Val Accuracy: 55.794, Val std: 0.000
+Test Accuracy = 55.794
+
+imagenet 4shot ViT-L/14, best C = 321.96784442513786, seed = 1
+Val Accuracy: 64.868, Val std: 0.000
+Test Accuracy = 64.860
+
+imagenet 8shot ViT-L/14, best C = 4.869675251658631, seed = 1
+Val Accuracy: 71.268, Val std: 0.000
+Test Accuracy = 71.268
+
+imagenet 16shot ViT-L/14, best C = 0.8976871324473141, seed = 1
+Val Accuracy: 75.152, Val std: 0.000
+Test Accuracy = 75.152
+

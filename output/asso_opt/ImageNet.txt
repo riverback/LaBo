@@ -1,0 +1,6 @@
+ImageNet_1shot_fac	49.58
+ImageNet_2shot_fac	56.77
+ImageNet_4shot_fac	62.67
+ImageNet_8shot_fac	68.3
+ImageNet_16shot_fac	72.4
+ImageNet_allshot_fac	84.07
