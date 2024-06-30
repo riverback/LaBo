@@ -18,3 +18,7 @@ imagenet 16shot ViT-L/14, best C = 0.8976871324473141, seed = 1
 Val Accuracy: 75.152, Val std: 0.000
 Test Accuracy = 75.152
 
+imagenet allshot ViT-L/14, best C = 0.0051396968007715125, seed = 1
+Val Accuracy: 84.716, Val std: 0.000
+Test Accuracy = 84.706
+
